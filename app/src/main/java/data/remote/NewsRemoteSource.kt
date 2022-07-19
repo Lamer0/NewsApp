@@ -1,10 +1,10 @@
 package data.remote
 
 import data.remote.base.BaseRemoteSource
-import data.remote.base.NewsRemoteSource
+import data.remote.base.NewsDao
 import data.remote.base.RetrofitConfig
 
-class NewsRemoteSource(config:RetrofitConfig) : BaseRemoteSource(config), NewsRemoteSource  {
+class NewsRemoteSource(config:RetrofitConfig) : BaseRemoteSource(config), NewsDao  {
 
     private val api = config.retrofit.create(NewsApi::class.java)
 
