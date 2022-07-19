@@ -1,18 +1,21 @@
 package data.remote
 
 import data.remote.base.BaseRemoteSource
+import data.remote.base.NewsRemoteSource
 import data.remote.base.RetrofitConfig
 
-class NewsRemoteSource(config:RetrofitConfig) : BaseRemoteSource(config)  {
+class NewsRemoteSource(config:RetrofitConfig) : BaseRemoteSource(config), NewsRemoteSource  {
 
     private val api = config.retrofit.create(NewsApi::class.java)
 
-    suspend fun getArticle(id:Int) =
+    override suspend fun getArticle(id:Int) =
         wrapExceptions { api.getArticle(id) }
 
-    suspend fun getArticles() =
+    override suspend fun getArticles() =
         wrapExceptions { api.getArticles() }
 
-    suspend fun getArticles(limit:Int, starAt:Int) =
-        wrapExceptions { api.getArticles(limit, starAt) }
+    override suspend fun getArticles(vararg requesData:Any) =
+        wrapExceptions {
+            api.getArticles(requesData[0].toString().toInt(), requesData[1].toString().toInt())
+        }
 }
