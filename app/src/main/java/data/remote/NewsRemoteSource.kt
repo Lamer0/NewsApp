@@ -14,8 +14,8 @@ class NewsRemoteSource(config:RetrofitConfig) : BaseRemoteSource(config), NewsDa
     override suspend fun getArticles() =
         wrapExceptions { api.getArticles() }
 
-    override suspend fun getArticles(vararg requesData:Any) =
+    override suspend fun getArticles(vararg queryData:Any) =
         wrapExceptions {
-            api.getArticles(requesData[0].toString().toInt(), requesData[1].toString().toInt())
+            api.getArticles(queryData[0].toString().toInt(), queryData[1].toString().toInt())
         }
 }
