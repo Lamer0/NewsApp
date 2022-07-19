@@ -11,13 +11,12 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
 
-
-open class BaseRemoteSource(config: RetrofitConfig) {
+open class BaseRemoteSource(config: RetrofitConfig) : RemoteSource {
 
     private val moshi: Moshi = config.moshi
     private val errorAdapter = moshi.adapter(ErrorResponse::class.java)
 
-    open suspend fun <T> wrapExceptions(block:suspend () -> T):T{
+    override suspend fun <T> wrapExceptions(block:suspend () -> T):T{
 
         return try {
             block()
@@ -41,9 +40,10 @@ open class BaseRemoteSource(config: RetrofitConfig) {
         }
     }
 
-    open suspend fun createBackEndException(exception: HttpException):Exception{
+    override suspend fun createBackEndException(exception: HttpException):Exception{
 
         return try {
+
              val responseBody = errorAdapter.fromJson(exception.
              response()
                  !!.errorBody()
