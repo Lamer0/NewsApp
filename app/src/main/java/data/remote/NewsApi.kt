@@ -16,5 +16,5 @@ interface NewsApi : RestApi{
 
     @GET("articles/")
     suspend fun getArticles(@Query("_limit")limit:Int,
-                            @Query("_start")star:Int):List<ArticleResponse>
+                            @Query("_start")start:Int):List<ArticleResponse>
 }
