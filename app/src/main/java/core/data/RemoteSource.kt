@@ -1,4 +1,4 @@
-package data.remote.base
+package core.data
 
 import retrofit2.HttpException
 import java.lang.Exception

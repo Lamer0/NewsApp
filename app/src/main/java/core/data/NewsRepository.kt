@@ -1,4 +1,4 @@
-package data.remote.base
+package core.data
 
 import  data.remote.responses.ArticleResponse
 

@@ -3,6 +3,7 @@ package data.remote.base
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonEncodingException
 import com.squareup.moshi.Moshi
+import core.data.RemoteSource
 import data.remote.responses.ErrorResponse
 import domain.models.BackendException
 import domain.models.BackendInvalidResponseException
