@@ -6,6 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+/***
+ * Represents methods for access to API
+ */
 interface NewsApi : RestApi{
 
     @GET("articles/{id}")

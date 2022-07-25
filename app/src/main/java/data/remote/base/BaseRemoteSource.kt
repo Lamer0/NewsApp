@@ -12,6 +12,9 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
 
+/***
+ * Represents base remote source, provide handles for errors
+ */
 open class BaseRemoteSource(config: RetrofitConfig) : RemoteSource {
 
     private val moshi: Moshi = config.moshi

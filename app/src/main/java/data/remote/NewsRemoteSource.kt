@@ -4,6 +4,9 @@ import data.remote.base.BaseRemoteSource
 import core.data.NewsDao
 import data.remote.base.RetrofitConfig
 
+/***
+ * Appeal to API and get Response
+ */
 class NewsRemoteSource(config:RetrofitConfig) : BaseRemoteSource(config), NewsDao {
 
     private val api = config.retrofit.create(NewsApi::class.java)

@@ -2,6 +2,9 @@ package core.data
 
 import data.remote.responses.ArticleResponse
 
+/***
+ * Represents methods for any news DAO
+ */
 interface NewsDao{
 
     suspend fun getArticles():List<ArticleResponse>

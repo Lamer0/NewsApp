@@ -1,5 +1,8 @@
 package data.remote.responses
 
+/***
+ * Represents response from API
+ */
 data class ArticleResponse(
     val events: List<EventResponse>,
     val featured: Boolean,
